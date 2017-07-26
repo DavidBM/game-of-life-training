@@ -1,9 +1,13 @@
 class Space  {
 	constructor(){
-		this.positions = [];
+		this.positions = {};
 	}
 
-	getPositions(){
-		return this.positions;
+	addCell(cell, position){
+		this.positions[position.getHash()] = cell;
+	}
+
+	getCell(position){
+		return this.positions[position.getHash()];
 	}
 }
