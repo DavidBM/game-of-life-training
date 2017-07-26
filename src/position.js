@@ -1,18 +1,9 @@
 class Position {
-	constructor(x, y) {
-		this.coordinates = [x, y];
-		this.cell = new Cell(false);
+	constructor(hash) {
+		this.coordinates = hash.split(',');
 	}
 
 	getHash(){
 		return this.coordinates.join(',');
-	}
-
-	setCell(cell){
-		this.cell = cell;
-	}
-
-	getCell(){
-		return this.cell;
 	}
 }
