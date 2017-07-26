@@ -17,6 +17,22 @@ class Space  {
 	}
 
 	getAlivePositions(){
-		return Object.keys(this.positions).map(hash => this.positions[hash]);
+		return Object.keys(this.positions).map(hash => new Position(hash));
+	}
+
+	getComputablePosition(){
+		var allHashes = [];
+
+		var alive = this.getAlivePositions();
+
+		alive
+		.map(pos => pos.getNeighboursHash())
+		.forEach((neighboursHash) => neighboursHash.forEach(neigh => {
+			allHashes.push(neigh);
+		}));
+
+		allHashes = allHashes.concat(alive.map(pos => pos.getHash()))
+
+		return allHashes.filter((hash, index) => allHashes.indexOf(hash) === index);
 	}
 }
