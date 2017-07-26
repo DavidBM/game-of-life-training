@@ -1,11 +1,21 @@
 class Rules {
 
 	isCellAlive(isAlive, neighbours) {
-		if(isAlive === true && neighbours <= 3){
-			return false;
+		if(isAlive === true){
+			if(neighbours <= 3)
+				return false;
+			else if(neighbours > 6)
+				return false
+			else
+				return true;
 		}
 		else{
-			return true;
+			if(neighbours <= 3)
+				return false;
+			else if(neighbours > 6)
+				return false
+			else
+				return true
 		}
 	}
 }
